@@ -70,7 +70,7 @@ client.on('message', message => {
 
 
 
-const adminprefix = "!vip ";
+const adminprefix = "!";
 const devs = ['454527533279608852'];
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
