@@ -31,11 +31,11 @@ client.on('ready', () => {
 
 client.on('message', message => {
               if(!message.channel.guild) return;
-    if(message.content.startsWith('!bc')) {
+    if(message.content.startsWith('$bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-    let request = `Requested By ${message.author.username}`;
+    let copy = "ζ͜͡Golden Community";
     if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
     msg.react('✅')
     .then(() => msg.react('❌'))
@@ -52,9 +52,11 @@ client.on('message', message => {
        Discord.RichEmbed()
        .setColor('RANDOM')
        .setAuthor(message.author.username , message.author.avatarURL)
-       .addField('السيرفر', message.guild.name) .addField('المرسل', message.author.username)
-       .addField('الرساله', args)
+       .addField('السيرفر', `${message.guild.name}`,true)
+	     .addField('الي', `${m}`,true)
+       .addField(' :mega: الرسالة ', args)
        .setThumbnail(message.guild.iconURL)
+       .setFooter(copy, client.user.avatarURL);
     m.send({ embed: bc })
     msg.delete();
     })
