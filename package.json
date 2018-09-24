@@ -53,4 +53,8 @@
     "weather-js": "^2.0.0",
     "rainbow-role": "^0.1.6"
   }
+},
+  "engines": {
+    "node": "8.4.0"
+  }
 }
