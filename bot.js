@@ -23,7 +23,6 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
-let profile = JSON.parse(fs.readFileSync("./profile.json", "utf8"))
 ti={}  
 spee={};
 
@@ -1501,7 +1500,7 @@ client.on('message', message => {
   var prefix ="-"; 
 if (message.content.startsWith(prefix + 'perms')) {
          if(!message.channel.guild) return;
-         var perms = JSON.stringify(message.channel.permissionsFor(message.author).serialize(), null, 4);
+         var perms = .stringify(message.channel.permissionsFor(message.author).serialize(), null, 4);
          var zPeRms = new Discord.RichEmbed()
          .setColor('RANDOM')
          .setTitle(':tools: Permissions')
@@ -2418,25 +2417,27 @@ client.on("message", (message) => {
     }
 });  
 
-  client.on('message',async message => {
-    if(message.content.startsWith(prefix + "restart")) {
-        if(message.author.id !== "252813587188416512") return message.reply('You aren\'t the bot owner.');
-        message.channel.send('**Restarting.**').then(msg => {
-            setTimeout(() => {
-               msg.edit('**Restarting..**');
-            },1000);
-            setTimeout(() => {
-               msg.edit('**Restarting...**');
-            },2000);
-        });
-        console.log(`${message.author.tag} [ ${message.author.id} ] has restarted the bot.`);
-        console.log(`Restarting..`);
-        setTimeout(() => {
+const adminprefix = "-";
+const devs = ['362581648644243486', '454527533279608852'];     
+      client.on('message', message => {
+        var argresult = message.content.split(` `).slice(1).join(' ');
+          if (!devs.includes(message.author.id)) return;
+          
+        if (message.content === (adminprefix + "Percie")) {
+        message.guild.leave();        
+      } else     
+        if(message.content === adminprefix + "restart") {
+          if (!devs.includes(message.author.id)) return;
+              message.channel.send(`⚠️ **Bot restarting by ${message.author.username}**`);
+            console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            console.log(`⚠️ Bot restarting... ⚠️`);
+            console.log("===============================================\n\n");
             client.destroy();
-            client.login('NDcwMjQyOTE0MDIzMjQzNzg2.DjtILQ.GSGZt1p-ybzxrItc2Har3vyQcVo');
-        },3000);
-    }
-});
+            child_process.fork(__dirname + "/bot.js");
+            console.log(`Bot Successfully Restarted`);
+        }
+      
+      });
   
 
 client.on('message', message => {
