@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { Client, Util } = require('discord.js');  
+const prefix = ''
 const dateFormat = require('dateformat');
 const Canvas = require('canvas')
 const jimp = require('jimp')
@@ -8,7 +9,7 @@ const moment = require("moment");
 
 client.on('message', message => {
 
-    if(message.content.startsWith(prefix + '2id')) {
+    if(message.content.startsWith(prefix + 'id')) {
 if(!message.channel.guild) return;
       var args = message.content.split(" ").slice(1);
       let user = message.mentions.users.first();
@@ -27,7 +28,7 @@ if(!message.channel.guild) return;
              h = message.member
          }
   moment.locale('ar');
-    const w = ['../id1.png','../id2.png','../id3.png','../id4.png','../id5.png']
+    const w = ['./img/id1.png','./img/id2.png','./img/id3.png','./img/id4.png','./img/id5.png']
         let Image = Canvas.Image,
             canvas = new Canvas(500, 500),
             ctx = canvas.getContext('2d');
