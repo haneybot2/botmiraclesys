@@ -36,6 +36,14 @@ client.user.setGame(`Miracle`,"http://twitch.tv/S-F")
   console.log('')
 });
 
+//voise online
+client.on('voiceStateUpdate', (old, now) => {
+  const channel = client.channels.get('449679201524514827');
+  const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
+  const size = channel.name.match(/\[\s(\d+)\s\]/);
+  if (!size) return channel.setName(`.AG Online: [${currentSize}]`);
+  if (currentSize !== size) channel.setName(`Voice Online: [${currentSize}]`);
+});
 
 //id
 client.on('message', message => {
