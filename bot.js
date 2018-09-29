@@ -81,20 +81,14 @@ const w = ['./welc1.png'];
             ctx.drawImage(ground, 0, 0, 1169, 576),
              
           
-          
-                let url = message.author.avatarURL; //افتار صورتك
-                let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(100) + ".png" : member.user.displayAvatarURL;
                 jimp.read(url, (err, ava) => {
                     if (err) return console.log(err);
                     ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
                         if (err) return console.log(err);
                         
-                        ctx.font = "bold 12px Arial";
-                        ctx.fontSize = '39px';
-                        ctx.fillStyle = "#ffffff";
-                        ctx.textAlign = "center";
+
                         
-                        ctx.font = "bold 12px Arial";
+                        ctx.font = "bold 39px Arial";
                         ctx.fontSize = '39px';
                         ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
