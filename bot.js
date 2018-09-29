@@ -81,8 +81,9 @@ const w = ['./welc1.png'];
             ctx.drawImage(ground, 0, 0, 1169, 576),
              
           
-
-                let url = member.author.avatarURL;
+          
+                var url = message.author.avatarURL; //افتار صورتك
+                let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(100) + ".png" : member.user.displayAvatarURL;
                 jimp.read(url, (err, ava) => {
                     if (err) return console.log(err);
                     ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
