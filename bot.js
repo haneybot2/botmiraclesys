@@ -82,7 +82,7 @@ const w = ['./welc1.png'];
              
           
           
-                var url = message.author.avatarURL; //افتار صورتك
+                let url = message.author.avatarURL; //افتار صورتك
                 let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(100) + ".png" : member.user.displayAvatarURL;
                 jimp.read(url, (err, ava) => {
                     if (err) return console.log(err);
