@@ -82,7 +82,7 @@ const w = ['./welc1.png'];
              
           
 
-                var url = message.author.avatarURL;
+                var url = member.author.avatarURL;
                 jimp.read(url, (err, ava) => {
                     if (err) return console.log(err);
                     ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
