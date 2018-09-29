@@ -106,12 +106,11 @@ const w = ['./welc1.png'];
                               ctx.arc(77, 101, 62, 0, Math.PI*2);
                               ctx.stroke();
                                  ctx.clip();
-                                 ctx.drawImage(ava, 13, 38, 284, 284);  
+                                 ctx.drawImage(ava, 273, 279, 284, 284);  
                           
                 
                              
 welcomer.sendFile(canvas.toBuffer())
-welcomer.send(`**Welcome to Server Miracle** <@${member.user.id}>`);
 
                     }  )  
       
