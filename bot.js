@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const { Client, Util } = require('discord.js');  
+const Util = require('discord.js');  
+const client = new Discord.Client();
 const prefix = '$';
 const dateFormat = require('dateformat');
 const Canvas = require('canvas')
