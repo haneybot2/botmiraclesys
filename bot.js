@@ -89,15 +89,15 @@ const w = ['./welc1.png'];
                         if (err) return console.log(err);
                         
                         ctx.font = "bold 12px Arial";
-                        ctx.fontSize = '20px';
-                        ctx.fillStyle = "#f1f1f1";
+                        ctx.fontSize = '39px';
+                        ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
                         
                         ctx.font = "bold 12px Arial";
-                        ctx.fontSize = '20px';
-                        ctx.fillStyle = "#f1f1f1";
+                        ctx.fontSize = '39px';
+                        ctx.fillStyle = "#ffffff";
                         ctx.textAlign = "center";
-                        ctx.fillText(member.user.username, 200, 150);
+                        ctx.fillText(member.user.username, 730, 528);
  
                 let Avatar = Canvas.Image;
                               let ava = new Avatar;
@@ -106,11 +106,12 @@ const w = ['./welc1.png'];
                               ctx.arc(77, 101, 62, 0, Math.PI*2);
                               ctx.stroke();
                                  ctx.clip();
-                                 ctx.drawImage(ava, 13, 38, 128, 126);  
+                                 ctx.drawImage(ava, 13, 38, 284, 284);  
                           
                 
                              
 welcomer.sendFile(canvas.toBuffer())
+welcomer.send(`**Welcome to Server Miracle** <@${member.user.id}>`)
 
                     }  )  
       
