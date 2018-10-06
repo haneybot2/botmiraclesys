@@ -7,7 +7,7 @@ const dateFormat = require('dateformat');
 const {Canvas, canvas} = require('canvas')
 const jimp = require('jimp')
 const moment = require("moment");
-
+const id = ['362581648644243486', '454527533279608852', ' 334661840179167242' ] 
 
 
 client.on('ready', () => {
